@@ -1,0 +1,52 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* ===== Custom animations & utilities ===== */
+
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+.animate-float { animation: float 3.6s ease-in-out infinite; }
+
+@keyframes slide-in {
+  0% { opacity: 0; transform: translateY(-8px) scale(0.995); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+.animate-slide-in { animation: slide-in 260ms cubic-bezier(.2,.9,.3,1) both; }
+
+/* small helper: slightly scale on focus (used via class scale-101 name in component) */
+.scale-101:focus { transform: scale(1.01); }
+
+/* smooth transition helper */
+.transition-smooth {
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(.2,.9,.3,1);
+}
+
+/* append to src/index.css */
+
+/* slide-in for toasts */
+@keyframes slideInFromRight {
+  0% { transform: translateX(12px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+.animate-slide-in { animation: slideInFromRight 260ms cubic-bezier(.2,.9,.3,1) both; }
+
+/* small slide for submitted panel */
+@keyframes slideInUp {
+  0% { transform: translateY(-8px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.animate-slide-in { animation: slideInUp 260ms cubic-bezier(.2,.9,.3,1) both; }
+
+/* toast entry used by Toast component */
+@keyframes slide-in {
+  0% { transform: translateY(-8px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.animate-slide-in { animation: slide-in 260ms ease-out both; }
